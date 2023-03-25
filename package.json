@@ -7,7 +7,7 @@
   "keywords": [],
   "author": "Headcrab",
   "scripts": {
-    "start": "node api/index.js"
+    "start": "node api/serverless.js"
   },
   "dependencies": {
     "fastify": "^4.15.0",
