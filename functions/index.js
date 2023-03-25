@@ -14,14 +14,14 @@ async function sendRequest(url, type, params) {
 }
 
 export default async function (instance, opts, done) {
-    instance.post('/teachers', async (req, res) => {
+    instance.post('/t', async (req, res) => {
         const params = new URLSearchParams()
         params.append('student', 'oenp')
 
         res.send(await sendRequest(teacherUrl, 'list_alphabet', params))
     })
 
-    instance.post('/teachers/:teacher/:week', async (req, res) => {
+    instance.post('/t/:teacher/:week', async (req, res) => {
         const teacher = req.params.teacher
         const week = req.params.week
 
@@ -32,7 +32,7 @@ export default async function (instance, opts, done) {
         res.send(await sendRequest(teacherUrl, 'teacher_schedule', params))
     })
 
-    instance.post('/students/:department', async (req, res) => {
+    instance.post('/s/:department', async (req, res) => {
         const department = req.params.department
 
         const params = new URLSearchParams()
@@ -41,7 +41,7 @@ export default async function (instance, opts, done) {
         res.send(await sendRequest(studentUrl, 'list_group', params))
     })
 
-    instance.post('/students/:department/:group/:week', async (req, res) => {
+    instance.post('/s/:department/:group/:week', async (req, res) => {
         const department = req.params.department
         const group = req.params.group
         const week = req.params.week
