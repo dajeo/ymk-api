@@ -6,7 +6,7 @@ const teacherUrl = `${baseUrl}/teacher`
 
 async function sendRequest(url, type, params) {
     const res = await fetch(`${url}/${type}.php`, {
-      method: 'post',
+      method: 'POST',
       body: params
     })
 
@@ -22,8 +22,7 @@ export default async function (instance, opts, done) {
     })
 
     instance.post('/t/:teacher/:week', async (req, res) => {
-        const teacher = req.params.teacher
-        const week = req.params.week
+        const { teacher, week } = req.params
 
         const params = new URLSearchParams()
         params.append('name_teacher', teacher)
@@ -33,7 +32,7 @@ export default async function (instance, opts, done) {
     })
 
     instance.post('/s/:department', async (req, res) => {
-        const department = req.params.department
+        const { department } = req.params
 
         const params = new URLSearchParams()
         params.append('branch', department)
@@ -42,9 +41,7 @@ export default async function (instance, opts, done) {
     })
 
     instance.post('/s/:department/:group/:week', async (req, res) => {
-        const department = req.params.department
-        const group = req.params.group
-        const week = req.params.week
+        const { department, group, week } = req.params
 
         const params = new URLSearchParams()
         params.append('num_group', group)
