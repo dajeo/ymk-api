@@ -1,10 +1,7 @@
 {
   "name": "ymkproxy",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "type": "module",
-  "keywords": [],
   "author": "Headcrab",
   "scripts": {
     "start": "node api/serverless.js"
